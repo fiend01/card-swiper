@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Hyper</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" integrity="sha384-xeJqLiuOvjUBq3iGOjvSQSIlwrpqjSHXpduPd6rQpuiM3f5/ijby8pCsnbu5S81n" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/fontawesome.min.css" integrity="sha384-z4tVnCr80ZcL0iufVdGQSUzNvJsKjEtqYZjiQrrYKlpGow+btDHDfQWkFjoaz/Zr" crossorigin="anonymous">
+    <script>
+        let activeIndex=0;
+        const groups= document.getElementsByClassName("card-group")
+        const handleLoveClick = () => {
+            //bump active index
+            const nextIndex = activeIndex + 1 <= groups.length - 1 ? activeIndex + 1: 0;
+            const currentGroup = document.querySelector(`[data-index = "$(activeIndex)"]`),
+                  nextGroup = document.querySelector(`[data-index = "$(nextIndex)"]`);
+            //active group becomes after
+            currentGroup.dataset.status = "after";
+            //Next group becomes active
+            nextGroup.dataset.status = "active";
+            activeGroup = nextGroup;
+        }
+    </script>
+</head>
+<body>
+    <div class="card-swiper">
+    <div class="card-groups"> 
+    <div class="card-group" data-index="0" data-status="active">
+        <div class="little-card card "></div>        
+        <div class="big-card card"></div>
+        <div class="little-card card "></div>
+        <div class="big-card card"></div>
+        <div class="little-card card"></div>
+        <div class="big-card card"></div>
+        <div class="little-card card"></div>
+        <div class="big-card card"></div>
+   </div>
+   <div class="card-group" data-index="1" data-status="unknown">
+    <div class="little-card card "></div>        
+    <div class="big-card card"></div>
+    <div class="little-card card "></div>
+    <div class="big-card card"></div>
+    <div class="little-card card"></div>
+    <div class="big-card card"></div>
+    <div class="little-card card"></div>
+    <div class="big-card card"></div>
+</div>
+<div class="card-group" data-index="2" data-status="unknown">
+    <div class="little-card card "></div>        
+    <div class="big-card card"></div>
+    <div class="little-card card "></div>
+    <div class="big-card card"></div>
+    <div class="little-card card"></div>
+    <div class="big-card card"></div>
+    <div class="little-card card"></div>
+    <div class="big-card card"></div>
+</div>
+</div> 
+       <div class="card-swiper-buttons">
+        <button id="hate-button" onclick="handleHateClick()">
+            <i class="fa-solid fa-x"></i>
+        </button>
+        <button id="love-button" onclick="handleLoveClick()">
+            <i class="fa-solid fa-heart"></i>
+        </button>
+       </div>
+</div>
+</body>
+</html>
